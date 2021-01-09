@@ -170,13 +170,59 @@ function writeHtml () {
         
         const template = `
         <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>${finalTeamArray[0].name}</title>
-            <link rel="stylesheet" type="text/css" href="./asset.css"/>
-        </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Team Profile</title>
+    <link rel="stylesheet" type="text/css" href="./asset.css"/>
+</head>
+<body>
+
+    <div class="header-wrap">
+         <div class="centered-with-padding">
+             <h1>My Team Profile</h1>
+         </div>
+     <!-- Area where team mate profile info will be -->
+        <div class="team-wrapper">
+         <div class="flex-team">
+             <!--Teamate profiles: Manager-->
+              <div class="profile-card">
+                <h2>${finalTeamArray[0].title}</h2>
+                <h3>${finalTeamArray[0].name}</h3>
+                <p>${finalTeamArray[0].id}</p>
+                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[0].email}</a><br/>
+                <p>${finalTeamArray[0].phone}</p>
+              </div>
+
+              <!--Teamate profiles: Engineer-->
+              <div class="profile-card">
+                <h2>${finalTeamArray[i].title}</h2>
+                <h3>${finalTeamArray[i].name}</h3>
+                <p>${finalTeamArray[i].id}</p>
+                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a><br/>
+                <a target="_blank" href="https://github.com/${finalTeamArray[i].gitHub}">GitHub</a>
+                </p>
+              </div>
+
+              <!-- Intern -->
+              <div class="profile-card">
+                <h2>${finalTeamArray[i].title}</h2>
+                <h3>${finalTeamArray[i].name}</h3>
+                <p>${finalTeamArray[i].id}</p>
+                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a><br/>
+                <p>${finalTeamArray[i].school}</p>
+              </div>
+               
+         </div>
+        </div>
+
+
+    </div>
+
+    
+</body>
+</html>
         `;
 
         writeToFile(template)
