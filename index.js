@@ -12,9 +12,9 @@ finalTeamArray = []
 function promptUser() {
 inquirer.prompt ([{
     //Team Manager
-        type: "input",
-        message: "Enter the name of your teammember:",
-        name: "name"
+    type: "input",
+    message: "Enter the name of your teammember:",
+    name: "name"
 },
 {
     type: "input",
@@ -40,10 +40,43 @@ inquirer.prompt ([{
     const teamMember = new Manager (name, id, email, phone)
     finalTeamArray.push(teamMember)
     console.log(finalTeamArray)
-
-    writeHtml()
+    // writeHtml()
+    promptUser2()
 })
 }
+
+function promptUser2() {
+
+inquirer.prompt ([{
+
+    type: 'list',
+    name: 'newTeammate',
+    message: 'Do you want to add a new teammate?',
+    choices: ['Add an engineer','Add an intern','Finish building my team'],
+
+
+}]).then (function (data) {
+        
+    switch(data.newTeammate) {
+        case "Add an engineer":
+            console.log('engineer')
+            break;
+
+         case "Add an intern":
+             console.log('intern')
+             break;
+
+         case "Finish building my team":
+             console.log('Writing your file')
+             writeHtml()
+             break;
+    }
+
+
+})
+}
+
+
 
 function writeHtml () {
     
@@ -73,7 +106,7 @@ function writeHtml () {
 
 function writeToFile(data) {
 
-    fs.writeFile(`.bleep.html`, data, (err)=> {
+    fs.writeFile(`./dist/index.html`, data, (err) => {
         if(err) {
             console.log(err)
         }
@@ -85,7 +118,7 @@ function writeToFile(data) {
 
 
     
+// promptUser2 ()
 
 promptUser()
-
 
