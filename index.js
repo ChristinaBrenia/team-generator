@@ -40,9 +40,51 @@ inquirer.prompt ([{
     const teamMember = new Manager (name, id, email, phone)
     finalTeamArray.push(teamMember)
     console.log(finalTeamArray)
+
+    writeHtml()
 })
 }
 
+function writeHtml () {
+    
+     
+    for (let i = 0; i < finalTeamArray.length; i++ ) {
+        
+        const template = `
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>${finalTeamArray[0].name}</title>
+            <link rel="stylesheet" type="text/css" href="./asset.css"/>
+        </head>
+        `;
+
+        writeToFile(template)
+
+        console.log(finalTeamArray[i].name)
+    }
+
+    
+
+    
+}
+
+function writeToFile(data) {
+
+    fs.writeFile(`.bleep.html`, data, (err)=> {
+        if(err) {
+            console.log(err)
+        }
+        console.log('your file is done')
+    }
+    
+
+)}
+
+
+    
 
 promptUser()
 
