@@ -2,6 +2,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const Manager = require("./lib/manager")
+const Engineer = require("./lib/engineer")
+const Intern = require("./lib/intern")
 
 
 //jest runs tests
@@ -13,7 +15,7 @@ function promptUser() {
 inquirer.prompt ([{
     //Team Manager
     type: "input",
-    message: "Enter the name of your teammember:",
+    message: "Enter the name of your manager:",
     name: "name"
 },
 {
@@ -24,10 +26,10 @@ inquirer.prompt ([{
 {
     type: "input",
     name:"email",
-    message: "Enter the manager's email",
+    message: "Enter the manager's email:",
 },
 {
-    type:"Input",
+    type:"input",
     name: 'phone',
     message:"Enter the manager's phone number:"
 
@@ -60,10 +62,12 @@ inquirer.prompt ([{
     switch(data.newTeammate) {
         case "Add an engineer":
             console.log('engineer')
+            engineer ()
             break;
 
          case "Add an intern":
              console.log('intern')
+             intern ()
              break;
 
          case "Finish building my team":
@@ -71,6 +75,87 @@ inquirer.prompt ([{
              writeHtml()
              break;
     }
+
+
+})
+};
+
+function engineer () {
+    inquirer.prompt([{
+
+        type:"input",
+        name: 'name',
+        message:"What is the Engineer's name?"
+    },
+    {
+
+        type:"input",
+        name: 'id',
+        message:"What is the Engineer's ID?"
+    },
+    {
+
+        type:"input",
+        name: 'email',
+        message:"What is the Engineer's email?"
+    },
+    {
+
+        type:"input",
+        name: 'gitHub',
+        message:"What is the GitHub username?"
+    },
+])
+.then(function (data) {
+    const name = data.name
+    const id = data.id
+    const email = data.email
+    const gitHub = data.gitHub
+    const teamMember = new Engineer (name, id, email, gitHub)
+    finalTeamArray.push(teamMember)
+    console.log(finalTeamArray)
+    promptUser2()
+
+
+})
+}
+
+function intern (){
+
+inquirer.prompt ([{
+
+    type:"input",
+    name: 'name',
+    message:"What is your interns name?"
+},
+{
+
+    type:"input",
+    name: 'id',
+    message:"What is your interns ID?"
+},
+{
+
+    type:"input",
+    name: 'email',
+    message:"What is your interns email?"
+},
+{
+
+    type:"input",
+    name: 'school',
+    message:"What is your interns school?"
+}
+])
+.then(function (data) {
+    const name = data.name
+    const id = data.id
+    const email = data.email
+    const school = data.school
+    const teamMember = new Intern (name, id, email, school)
+    finalTeamArray.push(teamMember)
+    console.log(finalTeamArray)
+    promptUser2()
 
 
 })
@@ -118,7 +203,6 @@ function writeToFile(data) {
 
 
     
-// promptUser2 ()
 
 promptUser()
 
