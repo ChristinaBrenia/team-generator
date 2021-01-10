@@ -10,6 +10,8 @@ This application is installed on the local machine. Node myst be installed to us
 
 ## Usage
 
+See demo at link: https://drive.google.com/file/d/1e7KKFn6N5Meky8qrcBc9koe5zRk-7Tmn/view
+
 ### Instructions
 
 1. Clone this repo to the local machine. (Install Node.js if it is not installed on your computer) 2. Open the command line and run the commands "node index.js" 3. You will then be prompted with a series of questions. 4. After you have completed the question prompt, you will have a new file generated in the folder titled "index.html."
