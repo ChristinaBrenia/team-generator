@@ -197,21 +197,21 @@ function writeHtml () {
 
               <!--Teamate profiles: Engineer-->
               <div class="profile-card">
-                <h2>${finalTeamArray[i].title}</h2>
-                <h3>${finalTeamArray[i].name}</h3>
-                <p>${finalTeamArray[i].id}</p>
-                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a><br/>
-                <a target="_blank" href="https://github.com/${finalTeamArray[i].gitHub}">GitHub</a>
+                <h2>${finalTeamArray[1].title}</h2>
+                <h3>${finalTeamArray[1].name}</h3>
+                <p>${finalTeamArray[1].id}</p>
+                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[1].email}</a><br/>
+                <a target="_blank" href="https://github.com/${finalTeamArray[1].gitHub}">GitHub</a>
                 </p>
               </div>
 
               <!-- Intern -->
               <div class="profile-card">
-                <h2>${finalTeamArray[i].title}</h2>
-                <h3>${finalTeamArray[i].name}</h3>
-                <p>${finalTeamArray[i].id}</p>
-                <a href="mailto:${finalTeamArray[i].email}">${finalTeamArray[i].email}</a><br/>
-                <p>${finalTeamArray[i].school}</p>
+                <h2>${finalTeamArray[2].title}</h2>
+                <h3>${finalTeamArray[2].name}</h3>
+                <p>${finalTeamArray[2].id}</p>
+                <a target="_blank"  href="mailto:${finalTeamArray[2].email}">${finalTeamArray[2].email}</a><br/>
+                <p>${finalTeamArray[2].school}</p>
               </div>
                
          </div>
